@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile.prod
+      context: ./frontend
+    container_name: sqlpanel-frontend
+    restart: unless-stopped
+    command: npm run build -l 3000
+    networks:
+      - realworld-docker-network
+
+  api:
+    build: ./api
+    container_name: sqlpanel-api
+    command: npm run start
+    networks:
+      - sqlpanel-network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: sqlpanel-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - frontend
+      - api
+    networks:
+      - sqlpanel-network
+
+networks:
+  sqlpanel-network:
+    driver: bridge
+
+restart: unless-stopped
+    environment:
+      - PORT=8080
+      
