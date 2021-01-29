@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node ./src/index.ts",
+    "nodemon": "npx nodemon",
     "start": "npm run compile && npm run execute",
     "compile": "tsc --build",
     "execute": "node ./build"
