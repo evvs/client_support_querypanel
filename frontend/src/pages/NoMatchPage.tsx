@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../components/buttons/Button';
+import LinkBtn from '../components/buttons/LinkBtn';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const P = styled.p`
 const NoMatch: React.FC = () => (
   <Wrapper>
     <P>404 Not found</P>
-    <Button type="button">Home</Button>
+    <LinkBtn size="l">Home</LinkBtn>
   </Wrapper>
 );
 
