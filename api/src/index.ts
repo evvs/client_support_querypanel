@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app: Application = express();
 const port = process.env.PORT || 8080;
-const dbpass = process.env.DBPASS
+const dbconn = process.env.DB_CONN
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,14 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/users', routers.users);
 app.use('/auth', routers.auth);
 
-
 app.get('/testconnection', (_, res) => {
   res.status(200).json({ status: 'server is working' });
 });
 
 const start = async () => {
   try {
-    await mongoose.connect(`${process.env.DB_CONN}`, {
+    await mongoose.connect(`${dbconn}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
@@ -37,4 +36,3 @@ const start = async () => {
 };
 
 start();
-
