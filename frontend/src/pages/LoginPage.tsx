@@ -11,20 +11,27 @@ const Wrapper = styled.div`
 const LoginWrapper = styled.div`
   min-height: 70vh;
   width: 30vw;
-  border: solid 1px white;
+  // border: solid 1px white;
   display: flex;
   flex-direction: column;
   header {
     min-height: 5vh;
-    border: solid 1px red;
     display: flex;
     justify-content: space-around;
+    border-bottom: 1px solid  rgba(21, 161, 242, 0.1);
     p{
+      &:nth-child(odd) {
+        border-right: 1px solid rgba(21, 161, 242, 0.1);
+      }
+      flex-grow: 1;
       padding-bottom: 2px;
-      display: flex;
-      align-items: flex-end;
+     text-align: center;
       font-size: 2rem;
       text-decoration: underline;
+      &:hover {
+        background-color: rgba(21, 161, 242, 0.1);
+        cursor: pointer;
+      }
     }
   }
 `;
