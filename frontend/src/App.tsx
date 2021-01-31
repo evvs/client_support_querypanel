@@ -1,27 +1,14 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-
-import LoginPage from './pages/LoginPage';
-import NoMatchPage from './pages/NoMatchPage';
+import Router from './routers/Router';
 import GlobalStyles from './GlobalStyles';
 
+import AuthProvider from './context/authContext';
+
 const App: React.FC = () => (
-  <>
-    <div>
-      <Switch>
-        <Route path="/" exact>
-          Home
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="*">
-          <NoMatchPage />
-        </Route>
-      </Switch>
-    </div>
+  <AuthProvider>
+    <Router />
     <GlobalStyles />
-  </>
+  </AuthProvider>
 );
 
 export default App;
