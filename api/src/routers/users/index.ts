@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import { get } from './handlers'
 
 const router = express.Router();
