@@ -24,8 +24,12 @@ const Span = styled.span`
   }
 `;
 
-const LinkBtn: React.FC<StyledBtnSizeProp> = ({ children, size }) => (
-  <Link to="/" style={{ textDecoration: 'none' }}>
+interface LinkBtnProps extends StyledBtnSizeProp {
+  to: string
+}
+
+const LinkBtn: React.FC<LinkBtnProps> = ({ children, size, to }) => (
+  <Link to={to} style={{ textDecoration: 'none' }}>
     <Span size={size}>{children}</Span>
   </Link>
 );
