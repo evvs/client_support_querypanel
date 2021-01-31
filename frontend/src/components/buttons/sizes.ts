@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export type StyledBtnSizeProp = {
   size?: string;
 };
@@ -15,3 +17,8 @@ export const fontSizes: ObjectWithSizes = {
   m: '1rem',
   l: '1.5rem',
 };
+
+export const paddingAndFontSize = css`
+  padding: ${(props: StyledBtnSizeProp) => (props.size ? paddingSizes[props.size] : paddingSizes.m)};
+  font-size: ${(props: StyledBtnSizeProp) => (props.size ? fontSizes[props.size] : fontSizes.m)};
+`;

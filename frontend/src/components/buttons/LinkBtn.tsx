@@ -3,17 +3,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { paddingSizes, StyledBtnSizeProp, fontSizes } from './sizes';
+import { StyledBtnSizeProp, paddingAndFontSize } from './sizes';
 
 const Span = styled.span`
+  ${paddingAndFontSize};
   background: transparent;
   border-color: rgb(29, 161, 242);
   border-style: solid;
   color: rgb(29, 161, 242);
   cursor: pointer;
   border-radius: 2rem;
-  padding: ${(props: StyledBtnSizeProp) => (props.size ? paddingSizes[props.size] : paddingSizes.m)};
-  font-size: ${(props: StyledBtnSizeProp) => (props.size ? fontSizes[props.size] : fontSizes.m)};
   font-weight: bold;
   text-decoration: none;
 
