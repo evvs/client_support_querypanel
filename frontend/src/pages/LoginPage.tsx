@@ -24,6 +24,7 @@ const TabHeader = styled.p`
   text-align: center;
   font-size: 2rem;
   text-decoration: ${(props: TabHeaderType) => (props.isSelected ? 'underline' : 'none')};
+  background-color: ${(props: TabHeaderType) => (props.isSelected ? '#131d27' : 'transparent')};
   &:hover {
     background-color: rgba(21, 161, 242, 0.1);
     cursor: pointer;
@@ -33,7 +34,12 @@ const TabHeader = styled.p`
 const LoginWrapper = styled.div`
   min-height: 70vh;
   width: 30vw;
-  // border: solid 1px white;
+
+  @media (max-width: 575.98px) { 
+    min-height: 50vh;
+  width: 90vw;
+   }
+
   display: flex;
   flex-direction: column;
   header {

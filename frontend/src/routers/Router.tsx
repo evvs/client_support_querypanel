@@ -15,7 +15,7 @@ const Router: React.FC = () => {
       <PrivateRoute path="/" exact>
         <HomePage />
       </PrivateRoute>
-      <Route path="/login">
+      <Route path="/login" exact>
         {auth ? <Redirect to="/" /> : <LoginPage />}
       </Route>
       <Route>

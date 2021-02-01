@@ -6,7 +6,7 @@ import { useAuth } from '../context/authContext';
 
 type PrivateRouteType = {
   path: string,
-  exact: boolean,
+  exact?: boolean,
 }
 
 const PrivateRoute: React.FC<PrivateRouteType> = ({ children, ...rest }) => {

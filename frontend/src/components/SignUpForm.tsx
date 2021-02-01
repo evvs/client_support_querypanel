@@ -11,8 +11,8 @@ const Form = styled.form`
 
 const SignUpForm: React.FC = () => (
   <Form>
-    <LoginInput placeholder="Login" type="text" />
     <LoginInput placeholder="Name" type="text" />
+    <LoginInput placeholder="Login" type="text" />
     <LoginInput placeholder="Password" type="password" />
     <Button size="m" type="submit" style={{ marginTop: '20px' }}>
       Submit
