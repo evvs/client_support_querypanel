@@ -38,11 +38,11 @@ type InputType = {
   type: string;
 };
 
-const LoginInput: React.FC<InputType> = ({ placeholder, type }) => (
+const LoginInput = React.forwardRef<HTMLInputElement, InputType>(({ placeholder, type }, ref) => (
   <InputGroup>
-    <input type={type} required />
+    <input type={type} required ref={ref} />
     <span>{placeholder}</span>
   </InputGroup>
-);
+));
 
 export default LoginInput;
