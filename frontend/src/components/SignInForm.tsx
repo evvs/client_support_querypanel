@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import LoginInput from './inputs/LoginInput';
@@ -9,16 +9,24 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
-const SignInForm: React.FC = () => (
-  <Form>
-    <LoginInput placeholder="Login" type="text" />
-    <LoginInput placeholder="Password" type="password" />
-    <div>
-      <Button size="m" type="submit" style={{ marginTop: '20px' }}>
-        Submit
-      </Button>
-    </div>
-  </Form>
-);
+const SignInForm: React.FC = () => {
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  return (
+    <Form>
+      <LoginInput placeholder="Login" type="text" ref={inputRef} />
+      <LoginInput placeholder="Password" type="password" />
+      <div>
+        <Button size="m" type="submit" style={{ marginTop: '20px' }}>
+          Submit
+        </Button>
+      </div>
+    </Form>
+  );
+};
 
 export default SignInForm;
