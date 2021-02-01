@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 import SignUpForm from '../components/SignUpForm';
 import SignInForm from '../components/SignInForm';
+import { useAuth } from '../context/authContext';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,7 +27,9 @@ const TabHeader = styled.p`
   font-size: 2rem;
   text-decoration: ${(props: TabHeaderType) => (props.isSelected ? 'underline' : 'none')};
   background-color: ${(props: TabHeaderType) => (props.isSelected ? '#131d27' : 'transparent')};
-  &:hover {
+  &:hover,
+  :focus {
+    outline: none;
     background-color: rgba(21, 161, 242, 0.1);
     cursor: pointer;
   }
@@ -59,9 +63,13 @@ const LoginWrapper = styled.div`
 type TabsType = 'signin' | 'signup';
 
 const LoginPage: React.FC = () => {
-  // const { setAuth, auth } = useAuth();
+  const { auth } = useAuth();
 
   const [currentTab, setCurrentTab] = useState<TabsType>('signin');
+
+  if (auth) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <Wrapper>
@@ -70,12 +78,14 @@ const LoginPage: React.FC = () => {
           <TabHeader
             onClick={() => setCurrentTab('signin')}
             isSelected={currentTab === 'signin'}
+            tabIndex={0}
           >
             sign in
           </TabHeader>
           <TabHeader
             onClick={() => setCurrentTab('signup')}
             isSelected={currentTab === 'signup'}
+            tabIndex={0}
           >
             sign up
           </TabHeader>

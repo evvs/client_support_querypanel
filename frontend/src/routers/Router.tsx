@@ -8,7 +8,7 @@ import NoMatchPage from '../pages/NoMatchPage';
 import { useAuth } from '../context/authContext';
 
 const Router: React.FC = () => {
-  const { auth } = useAuth();
+  // const { auth } = useAuth();
 
   return (
     <Switch>
@@ -16,7 +16,7 @@ const Router: React.FC = () => {
         <HomePage />
       </PrivateRoute>
       <Route path="/login" exact>
-        {auth ? <Redirect to="/" /> : <LoginPage />}
+        <LoginPage />
       </Route>
       <Route>
         <NoMatchPage />
