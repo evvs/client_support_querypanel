@@ -1,19 +1,17 @@
 import React, { useState, useContext } from 'react';
 
 type useProvideAuthType = {
-  auth: boolean | undefined;
+  auth: boolean;
   setAuth: (value: boolean) => void;
 };
 
 const useProvideAuth = (): useProvideAuthType => {
-  const [auth, setAuth] = useState<boolean | undefined>();
+  const [auth, setAuth] = useState<boolean>(false);
 
   return { auth, setAuth };
 };
 
-const AuthContext = React.createContext<Partial<useProvideAuthType>>({
-  auth: undefined,
-});
+const AuthContext = React.createContext<Partial<useProvideAuthType>>({});
 
 export const useAuth = () => useContext(AuthContext);
 
