@@ -18,7 +18,6 @@ export const register = async (req: Request, res: Response) => {
       login,
       password: hashedPass,
       role: 'user',
-      department: department ? department : 'bank',
     });
 
     await user.save();
