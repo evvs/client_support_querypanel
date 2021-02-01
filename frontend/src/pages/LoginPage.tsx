@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 type TabHeaderType = {
   isSelected: boolean;
-}
+};
 
 const TabHeader = styled.p`
   &:nth-child(odd) {
@@ -35,10 +35,15 @@ const LoginWrapper = styled.div`
   min-height: 70vh;
   width: 30vw;
 
-  @media (max-width: 575.98px) { 
+  @media (max-width: 991.98px) {
+    min-height: 70vh;
+    width: 50vw;
+  }
+
+  @media (max-width: 575.98px) {
     min-height: 50vh;
-  width: 90vw;
-   }
+    width: 90vw;
+  }
 
   display: flex;
   flex-direction: column;
@@ -51,7 +56,7 @@ const LoginWrapper = styled.div`
   }
 `;
 
-type TabsType = 'signin' | 'signup'
+type TabsType = 'signin' | 'signup';
 
 const LoginPage: React.FC = () => {
   // const { setAuth, auth } = useAuth();
@@ -62,10 +67,20 @@ const LoginPage: React.FC = () => {
     <Wrapper>
       <LoginWrapper>
         <header>
-          <TabHeader onClick={() => setCurrentTab('signin')} isSelected={currentTab === 'signin'}>sign in</TabHeader>
-          <TabHeader onClick={() => setCurrentTab('signup')} isSelected={currentTab === 'signup'}>sign up</TabHeader>
+          <TabHeader
+            onClick={() => setCurrentTab('signin')}
+            isSelected={currentTab === 'signin'}
+          >
+            sign in
+          </TabHeader>
+          <TabHeader
+            onClick={() => setCurrentTab('signup')}
+            isSelected={currentTab === 'signup'}
+          >
+            sign up
+          </TabHeader>
         </header>
-        { currentTab === 'signin' ? <SignInForm /> : <SignUpForm />}
+        {currentTab === 'signin' ? <SignInForm /> : <SignUpForm />}
       </LoginWrapper>
     </Wrapper>
   );
