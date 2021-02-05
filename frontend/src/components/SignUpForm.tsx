@@ -20,10 +20,6 @@ const SignUpForm: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
-  useEffect(() => {
-    console.log('rerender');
-  });
-
   const { request, errors, clearErrors } = useHttp();
 
   const regHandler = async (data: Record<string, unknown>): Promise<void> => {
