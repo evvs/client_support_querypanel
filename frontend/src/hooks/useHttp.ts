@@ -3,23 +3,23 @@ import axios from 'axios';
 
 type methodsTypes = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
-type useHttpTypes = (
+type requestTypes = (
   url: string,
   method?: methodsTypes,
-  body?: string | null,
+  body?: string | null | Record<string, unknown>,
   headers?: Record<string, unknown>,
 ) => void;
 
-export const useHttp: useHttpTypes = (
-  url,
-  method = 'get',
-  body = null,
-  headers = {},
-) => {
+export const useHttp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const request = async () => {
+  const request: requestTypes = async (
+    url,
+    method = 'get',
+    body = null,
+    headers = {},
+  ) => {
     try {
       const data = await axios({
         method,
@@ -34,4 +34,6 @@ export const useHttp: useHttpTypes = (
       console.log(err);
     }
   };
+
+  return request;
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,7 +23,7 @@ const InputGroup = styled.label`
     top: calc(50% + 10px);
     transform: translateY(-50%);
     color: #aaa;
-    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
   }
 
   input:valid + span,
@@ -36,13 +37,18 @@ const InputGroup = styled.label`
 type InputType = {
   placeholder: string;
   type: string;
+  name?: string;
 };
 
-const LoginInput = React.forwardRef<HTMLInputElement, InputType>(({ placeholder, type }, ref) => (
-  <InputGroup>
-    <input type={type} required ref={ref} />
-    <span>{placeholder}</span>
-  </InputGroup>
-));
+const LoginInput = React.forwardRef<HTMLInputElement, InputType>(
+  ({ placeholder, type, name }, ref) => {
+    return (
+      <InputGroup>
+        <input type={type} required ref={ref} name={name} />
+        <span>{placeholder}</span>
+      </InputGroup>
+    );
+  },
+);
 
 export default LoginInput;
