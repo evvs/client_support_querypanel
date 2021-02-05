@@ -6,13 +6,12 @@ type methodsTypes = 'get' | 'post' | 'put' | 'patch' | 'delete';
 type requestTypes = (
   url: string,
   method?: methodsTypes,
-  body?: string | null | Record<string, unknown>,
+  body?: null | Record<string, unknown>,
   headers?: Record<string, unknown>,
 ) => void;
 
 export const useHttp = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [errors, setErrors] = useState(null);
 
   const request: requestTypes = async (
     url,
@@ -30,10 +29,12 @@ export const useHttp = () => {
 
       console.log(data);
     } catch (err) {
-      setError(err);
-      console.log(err);
+      console.log(err.response.data.message);
+      setErrors(err.response.data.message);
     }
   };
 
-  return request;
+  const clearErrors = () => setErrors(null);
+
+  return { request, errors, clearErrors };
 };

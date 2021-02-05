@@ -17,4 +17,14 @@ export default styled.button`
     background-color: rgba(21, 161, 242, 0.1);
     box-shadow: rgb(142 208 249) 0px 0px 0px 2px;
   }
+
+  &:disabled {
+    color: grey;
+    border-color: grey;
+  }
+  &:disabled:hover {
+    background-color: transparent;
+    box-shadow: none;
+    cursor: default;
+  }
 `;

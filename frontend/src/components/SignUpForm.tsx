@@ -20,9 +20,14 @@ const SignUpForm: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
-  const request = useHttp();
+  useEffect(() => {
+    console.log('rerender');
+  });
+
+  const { request, errors, clearErrors } = useHttp();
 
   const regHandler = async (data: Record<string, unknown>): Promise<void> => {
+    clearErrors();
     await request('/auth/register', 'post', data);
   };
 
@@ -48,6 +53,7 @@ const SignUpForm: React.FC = () => {
         <Button size="m" type="submit" style={{ marginTop: '20px' }}>
           Submit
         </Button>
+        {errors}
       </div>
     </Form>
   );
