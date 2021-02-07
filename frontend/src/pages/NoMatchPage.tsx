@@ -19,7 +19,7 @@ const P = styled.p`
 const NoMatch: React.FC = () => (
   <Wrapper>
     <P>404 Not found</P>
-    <LinkBtn size="m" to="/sqlpanel">Home</LinkBtn>
+    <LinkBtn size="m" to="/">Home</LinkBtn>
   </Wrapper>
 );
 

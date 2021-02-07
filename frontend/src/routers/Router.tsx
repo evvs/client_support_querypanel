@@ -9,7 +9,7 @@ import NoMatchPage from '../pages/NoMatchPage';
 const Router: React.FC = () => {
   return (
     <Switch>
-      <PrivateRoute path={['/sqlpanel', '/']} exact>
+      <PrivateRoute path="/" exact>
         <HomePage />
       </PrivateRoute>
       <Route path="/login" exact>
