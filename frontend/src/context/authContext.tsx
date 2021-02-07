@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
 
 type useProvideAuthType = {
   auth: boolean;
@@ -10,21 +10,22 @@ const useProvideAuth = (): useProvideAuthType => {
   const [auth, setAuth] = useState<boolean>(false);
 
   useEffect(() => {
-    // const checkToken = async (token: string) => {
-    //   try {
-    //     await axios.get('/auth/validatetoken', {
-    //       headers: {
-    //         authorization: `Bearer ${token}`,
-    //       },
-    //     });
-    //     setAuth(true);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+    const checkToken = async (token: string) => {
+      try {
+        setAuth(true);
+        await axios.get('/auth/validatetoken', {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        });
+      } catch (error) {
+        setAuth(false);
+        console.log(error);
+      }
+    };
     const storageToken = localStorage.getItem('token');
     if (storageToken) {
-      setAuth(true);
+      checkToken(storageToken);
     }
   }, []);
 
