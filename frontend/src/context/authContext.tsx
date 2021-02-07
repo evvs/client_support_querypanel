@@ -20,7 +20,7 @@ const useProvideAuth = (): useProvideAuthType => {
         });
       } catch (error) {
         setAuth(false);
-        console.log(error);
+        localStorage.removeItem('token');
       }
     };
     const storageToken = localStorage.getItem('token');
