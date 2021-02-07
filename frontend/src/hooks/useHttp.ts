@@ -8,10 +8,11 @@ type requestTypes = (
   method?: methodsTypes,
   body?: null | Record<string, unknown>,
   headers?: Record<string, unknown>,
-) => void;
+) => unknown;
 
 export const useHttp = () => {
   const [errors, setErrors] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const request: requestTypes = async (
     url,
@@ -19,6 +20,7 @@ export const useHttp = () => {
     body = null,
     headers = {},
   ) => {
+    setLoading(true);
     try {
       const data = await axios({
         method,
@@ -27,14 +29,20 @@ export const useHttp = () => {
         headers,
       });
 
+      setLoading(false);
       console.log(data);
+      return data;
     } catch (err) {
-      console.log(err.response.data.message);
+      setLoading(false);
+
       setErrors(err.response.data.message);
+      throw err;
     }
   };
 
   const clearErrors = () => setErrors(null);
 
-  return { request, errors, clearErrors };
+  return {
+    request, errors, clearErrors, loading,
+  };
 };

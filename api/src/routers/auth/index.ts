@@ -1,12 +1,13 @@
 import express from 'express';
-import { register, login } from './handlers';
+import { register, login, checkToken } from './handlers';
+import auth from '../../middlewares/auth.middleware';
 
 const router = express.Router();
-
 
 // auth/login
 router.post('/register', register);
 router.post('/login', login);
+router.get('/validatetoken', auth, checkToken);
 
 export { router as auth };
  

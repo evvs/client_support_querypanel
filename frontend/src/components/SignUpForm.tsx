@@ -20,7 +20,9 @@ const SignUpForm: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
-  const { request, errors, clearErrors } = useHttp();
+  const {
+    request, errors, clearErrors, loading,
+  } = useHttp();
 
   const regHandler = async (data: Record<string, unknown>): Promise<void> => {
     clearErrors();
@@ -46,7 +48,7 @@ const SignUpForm: React.FC = () => {
         ref={register}
       />
       <div>
-        <Button size="m" type="submit" style={{ marginTop: '20px' }}>
+        <Button size="m" type="submit" style={{ marginTop: '20px' }} disabled={loading}>
           Submit
         </Button>
         {errors}

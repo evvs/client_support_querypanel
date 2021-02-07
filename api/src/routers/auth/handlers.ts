@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import User from '../../models/User';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+
 require('dotenv').config();
 
 export const register = async (req: Request, res: Response) => {
@@ -46,12 +47,20 @@ export const login = async (req: Request, res: Response) => {
     const token = jwt.sign(
       {
         userid: user.id,
+        username: user.name
       },
       `${secretkey}`,
-      { expiresIn: '1h' }
     );
-    return res.json({ token, userId: user.id });
+    return res.json({ token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const checkToken = (req: Request, res: Response) => {
+  try {
+    return res.status(200).json({ message: 'OK' });
+  } catch (error) {
+    return res.status(400).json({ message: 'invalid token' });
+  }
+}

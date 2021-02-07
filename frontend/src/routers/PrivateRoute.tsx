@@ -5,13 +5,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
 type PrivateRouteType = {
-  path: string,
+  path: string | string[],
   exact?: boolean,
 }
 
 const PrivateRoute: React.FC<PrivateRouteType> = ({ children, ...rest }) => {
   const { auth } = useAuth();
-
   return (
     <Route {...rest} render={() => (auth ? (children) : (<Redirect to="/login" />))} />
   );
