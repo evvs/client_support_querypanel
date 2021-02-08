@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
 const NavigationLink: React.FC<NavLinkType> = ({ linkto, linktext, icon }) => {
   return (
-    <Link to={`${linkto}`}>
+    <Link to={`${linkto}`} style={{ textDecoration: 'none' }}>
       <Wrapper>
         <FontAwesomeIcon icon={icon} className="icon" />
         <p>{linktext}</p>
