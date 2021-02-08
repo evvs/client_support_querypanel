@@ -1,19 +1,7 @@
-services:
-  frontend:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./frontend
-    command: npm run start
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./frontend/src:/usr/src/app/src
-
+ version: '3.9'
+ 
+ services:
   api:
-    command: npm run start
+    command: npm run nodemon
     volumes:
       - ./api/src:/usr/src/app/src
-
-  nginx:
-    volumes:
-      - ./nginx/nginx.conf.dev:/etc/nginx/conf.d/nginx.conf

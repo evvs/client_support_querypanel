@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app: Application = express();
 const port = process.env.PORT || 8080;
-const dbconn = process.env.DB_CONN
+const dbconn = process.env.DB_CONN;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
