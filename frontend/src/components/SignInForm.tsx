@@ -57,9 +57,10 @@ const SignInForm: React.FC = () => {
         name="password"
       />
       <div>
-        <Button size="m" type="submit" style={{ marginTop: '20px' }}>
+        <Button size="m" type="submit" style={{ marginTop: '20px' }} disabled={loading}>
           Submit
         </Button>
+        {errors}
       </div>
     </Form>
   );
