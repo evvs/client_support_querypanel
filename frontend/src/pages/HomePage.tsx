@@ -37,7 +37,7 @@ const routes = [
 const HomePage: React.FC = () => (
   <HomeWrapper>
     <Navigation />
-    <div style={{ flexGrow: 1 }}>
+    <main style={{ flexGrow: 1 }}>
       <Switch>
         {routes.map((route) => (
           <Route key={route.path} path={route.path} exact={route.exact}>
@@ -45,7 +45,7 @@ const HomePage: React.FC = () => (
           </Route>
         ))}
       </Switch>
-    </div>
+    </main>
   </HomeWrapper>
 );
 
