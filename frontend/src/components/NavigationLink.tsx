@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type NavLinkType = {
@@ -9,12 +9,17 @@ type NavLinkType = {
   icon?: any;
 };
 
+type WrapperType = {
+  isSelectedTab: boolean;
+}
+
 const Wrapper = styled.div`
   display: flex;
   height: 3rem;
   align-items: center;
   padding: 0 0.5rem;
   font-size: 1rem;
+  background-color: ${(props: WrapperType) => (props.isSelectedTab ? '#15202b' : 'transparent')};
 
   .icon {
     font-size: 1.5rem;
@@ -30,9 +35,13 @@ const Wrapper = styled.div`
 `;
 
 const NavigationLink: React.FC<NavLinkType> = ({ linkto, linktext, icon }) => {
+  const { pathname } = useLocation();
+
+  const isSelectedTab = pathname === linkto;
+
   return (
-    <Link to={`${linkto}`} style={{ textDecoration: 'none' }}>
-      <Wrapper>
+    <Link to={`${linkto}`} style={{ textDecoration: isSelectedTab ? 'underline' : 'none' }}>
+      <Wrapper isSelectedTab={isSelectedTab}>
         <FontAwesomeIcon icon={icon} className="icon" />
         <p>{linktext}</p>
       </Wrapper>

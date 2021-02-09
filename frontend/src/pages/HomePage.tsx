@@ -37,13 +37,15 @@ const routes = [
 const HomePage: React.FC = () => (
   <HomeWrapper>
     <Navigation />
-    <Switch>
-      {routes.map((route) => (
-        <Route key={route.path} path={route.path} exact={route.exact}>
-          <route.main />
-        </Route>
-      ))}
-    </Switch>
+    <div style={{ flexGrow: 1 }}>
+      <Switch>
+        {routes.map((route) => (
+          <Route key={route.path} path={route.path} exact={route.exact}>
+            <route.main />
+          </Route>
+        ))}
+      </Switch>
+    </div>
   </HomeWrapper>
 );
 
