@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<TabsType>('signin');
 
   if (auth) {
-    return <Redirect to="/" />;
+    return <Redirect to="/query" />;
   }
 
   return (

@@ -9,12 +9,12 @@ import NoMatchPage from '../pages/NoMatchPage';
 const Router: React.FC = () => {
   return (
     <Switch>
-      <PrivateRoute path="/" exact>
-        <HomePage />
-      </PrivateRoute>
       <Route path="/login" exact>
         <LoginPage />
       </Route>
+      <PrivateRoute path="/">
+        <HomePage />
+      </PrivateRoute>
       <Route>
         <NoMatchPage />
       </Route>

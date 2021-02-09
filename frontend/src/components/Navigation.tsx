@@ -23,10 +23,10 @@ const Navigation: React.FC = () => {
   return (
     <NavWrapper>
       <div>
-        <NavigationLink linkto="query" linktext="Qwery" icon={faDatabase} />
+        <NavigationLink linkto="query" linktext="Query" icon={faDatabase} />
         <NavigationLink linkto="logs" linktext="Logs" icon={faThList} />
         <NavigationLink linkto="users" linktext="Users" icon={faUser} />
-        <NavigationLink linkto="Tools" linktext="Tools" icon={faCog} />
+        <NavigationLink linkto="tools" linktext="Tools" icon={faCog} />
       </div>
 
       <SignOutBtn />
