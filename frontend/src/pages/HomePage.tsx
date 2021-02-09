@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
+import Query from '../components/Query';
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -17,11 +18,19 @@ const routes = [
   },
   {
     path: '/query',
-    main: () => <h2>Query</h2>,
+    main: () => <Query />,
   },
   {
     path: '/logs',
     main: () => <h2>Logs</h2>,
+  },
+  {
+    path: '/users',
+    main: () => <h2>Users</h2>,
+  },
+  {
+    path: '/tools',
+    main: () => <h2>Tools</h2>,
   },
 ];
 
