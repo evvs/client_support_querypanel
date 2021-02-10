@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-boolean-value */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AceEditor from 'react-ace';
+import { useDispatch, useSelector } from 'react-redux';
 
 import 'ace-builds/src-noconflict/mode-mysql';
 import 'ace-builds/src-noconflict/theme-dracula';
+
+import { updateQuery } from '../redux-slices/querySlice';
 
 const GridWrapper = styled.div`
   height: 100%;
@@ -25,17 +28,31 @@ const AceEditorStyled = styled(AceEditor)`
   }
 `;
 
-const Query: React.FC = () => {
-  function onChange() {
-    console.log('change');
+interface RootState {
+  query: {
+    queryInput: string;
   }
+}
+
+const Query: React.FC = () => {
+  const { queryInput } = useSelector((state: RootState) => state.query);
+
+  const dispatch = useDispatch();
+  const [queryValue, setQueryValue] = useState<string>(queryInput);
+
+  const onChangeHandler = (value: string) => {
+    setQueryValue(value);
+  };
+
+  const onBlurHandler = () => {
+    dispatch(updateQuery(queryValue));
+  };
 
   return (
     <GridWrapper>
       <AceEditorStyled
         mode="mysql"
         theme="dracula"
-        onChange={onChange}
         name="UNIQUE_ID_OF_DIV"
         width="100%"
         height="100%"
@@ -46,6 +63,9 @@ const Query: React.FC = () => {
         highlightActiveLine={true}
         tabSize={4}
         focus={true}
+        onChange={onChangeHandler}
+        value={queryValue}
+        onBlur={onBlurHandler}
       />
     </GridWrapper>
   );

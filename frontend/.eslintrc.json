@@ -23,6 +23,7 @@
     "no-use-before-define": "off",
     "react/prop-types": "off",
     "arrow-body-style": "off",
+    "no-param-reassign": "off",
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "max-len": ["error", { "code": 200 }],
     "react/jsx-filename-extension": [

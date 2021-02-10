@@ -7,9 +7,11 @@ import { Provider } from 'react-redux';
 import App from './App';
 import AuthProvider from './context/authContext';
 import usersReducer from './redux-slices/usersSlice';
+import queryReducer from './redux-slices/querySlice';
 
 const rootReducer = {
   users: usersReducer,
+  query: queryReducer,
 };
 const store = configureStore({ reducer: rootReducer });
 
