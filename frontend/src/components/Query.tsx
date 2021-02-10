@@ -8,6 +8,7 @@ import 'ace-builds/src-noconflict/mode-mysql';
 import 'ace-builds/src-noconflict/theme-dracula';
 
 import { updateQuery } from '../redux-slices/querySlice';
+import { RootState } from '..';
 
 const GridWrapper = styled.div`
   height: 100%;
@@ -27,12 +28,6 @@ const AceEditorStyled = styled(AceEditor)`
     font-family: inherit;
   }
 `;
-
-interface RootState {
-  query: {
-    queryInput: string;
-  }
-}
 
 const Query: React.FC = () => {
   const { queryInput } = useSelector((state: RootState) => state.query);
