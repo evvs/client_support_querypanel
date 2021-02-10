@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 
 import LoginInput from './inputs/LoginInput';
-import Button from './buttons/Button';
+import LoginButton from './buttons/LoginButton';
 import { useHttp } from '../hooks/useHttp';
 import { useAuth } from '../context/authContext';
 
@@ -57,9 +57,9 @@ const SignInForm: React.FC = () => {
         name="password"
       />
       <div>
-        <Button size="m" type="submit" style={{ marginTop: '20px' }} disabled={loading}>
+        <LoginButton size="m" type="submit" style={{ marginTop: '20px' }} disabled={loading}>
           Submit
-        </Button>
+        </LoginButton>
         {errors}
       </div>
     </Form>
