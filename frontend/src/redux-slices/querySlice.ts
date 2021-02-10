@@ -1,10 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface QueryState {
-  queryInput: string;
+export type QueryError = {
+  query: '',
+  error: '',
 }
 
-const initialState = { queryInput: '' } as QueryState;
+type QueryState = {
+  queryInput: string;
+  queryErrors: QueryError[];
+}
+
+const initialState = { queryInput: '', queryErrors: [] } as QueryState;
 
 const querySlice = createSlice({
   name: 'query',
