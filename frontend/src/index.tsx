@@ -6,21 +6,8 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import AuthProvider from './context/authContext';
-import usersReducer, { User } from './redux-slices/usersSlice';
-import queryReducer, { QueryError } from './redux-slices/querySlice';
-
-export type RootState = {
-  users:{
-    users: {
-    [key: string]: User;
-  };
-  usersbyid: string[];
-};
-  query: {
-    queryInput: string;
-    queryErrors: QueryError[];
-  }
-};
+import usersReducer from './redux-slices/usersSlice';
+import queryReducer from './redux-slices/querySlice';
 
 const rootReducer = {
   users: usersReducer,
@@ -28,6 +15,8 @@ const rootReducer = {
 };
 
 const store = configureStore({ reducer: rootReducer });
+
+export type RootState = ReturnType<typeof store.getState>;
 
 ReactDOM.render(
   <Provider store={store}>
