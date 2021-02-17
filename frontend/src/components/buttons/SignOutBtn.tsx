@@ -32,7 +32,7 @@ const SignOutBtn: React.FC = () => {
   };
 
   return (
-    <Btn type="button" onClick={signOutHandler}>
+    <Btn type="button" onClick={signOutHandler} title="Sign out">
       <FontAwesomeIcon icon={faSignOutAlt} />
     </Btn>
   );

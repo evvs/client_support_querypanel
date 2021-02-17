@@ -11,7 +11,6 @@ import NavigationLink from './NavigationLink';
 import SignOutBtn from './buttons/SignOutBtn';
 
 const NavWrapper = styled.aside`
-  flex-basis: 5%;
   background-color: #111922;
   padding: 3rem 0;
   display: flex;

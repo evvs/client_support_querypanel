@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
-import Query from '../components/Query';
+import Query from '../components/QueryEditor';
 
 const HomeWrapper = styled.div`
   display: flex;

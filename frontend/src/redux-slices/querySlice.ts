@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export type QueryError = {
+type QueryError = {
   query: '',
   error: '',
 }

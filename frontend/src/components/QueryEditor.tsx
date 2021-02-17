@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-boolean-value */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AceEditor from 'react-ace';
@@ -9,6 +8,7 @@ import 'ace-builds/src-noconflict/theme-dracula';
 
 import { updateQuery } from '../redux-slices/querySlice';
 import { RootState } from '..';
+import QueryForm from './QueryForm';
 
 const GridWrapper = styled.div`
   height: 100%;
@@ -29,7 +29,7 @@ const AceEditorStyled = styled(AceEditor)`
   }
 `;
 
-const Query: React.FC = () => {
+const QueryEditor: React.FC = () => {
   const { queryInput } = useSelector((state: RootState) => state.query);
 
   const dispatch = useDispatch();
@@ -45,6 +45,7 @@ const Query: React.FC = () => {
 
   return (
     <GridWrapper>
+      <QueryForm />
       <AceEditorStyled
         mode="mysql"
         theme="dracula"
@@ -53,11 +54,11 @@ const Query: React.FC = () => {
         height="100%"
         editorProps={{ $blockScrolling: true }}
         showPrintMargin={false}
-        showGutter={true}
+        showGutter
         fontSize="1rem"
-        highlightActiveLine={true}
+        highlightActiveLine
         tabSize={4}
-        focus={true}
+        focus
         onChange={onChangeHandler}
         value={queryValue}
         onBlur={onBlurHandler}
@@ -66,4 +67,4 @@ const Query: React.FC = () => {
   );
 };
 
-export default Query;
+export default QueryEditor;
