@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/users', routers.users);
 app.use('/auth', routers.auth);
+app.use('/query', routers.query);
 
 app.get('/testconnection', (_, res) => {
   res.status(200).json({ status: 'server is working' });
@@ -25,6 +26,7 @@ const start = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
+
     console.log('connect to db success');
     app.listen(port, (): void => {
       console.log(`Application started on port ${port}`);
