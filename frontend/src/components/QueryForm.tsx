@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
 
 import MainBtn from './buttons/MainBtn';
 import MainInput from './inputs/MainInput';
@@ -61,21 +59,14 @@ const QueryFrom: React.FC = () => {
         </InputsWrapper>
       </SelectServerWrapper>
       <ServerButtonsWrapper>
-        <MainBtn
-          size="s"
-          style={{ marginBottom: '1rem' }}
-        >
+        <MainBtn size="s" style={{ marginBottom: '1rem' }}>
           Save
         </MainBtn>
         <GetDBListBtn size="m">Connect</GetDBListBtn>
       </ServerButtonsWrapper>
       <SelectDatabase />
 
-      <ExecuteQueryBtn size="l">
-        Execute
-        <br />
-        <FontAwesomeIcon icon={faBolt} />
-      </ExecuteQueryBtn>
+      <ExecuteQueryBtn size="l">Execute query</ExecuteQueryBtn>
     </Form>
   );
 };

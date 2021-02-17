@@ -8,7 +8,6 @@ export default styled.button`
   cursor: pointer;
   font-weight: bold;
   border-radius: 16px;
-  box-shadow: rgba(64, 67, 82, 1) 0px 0px 0px 2px;
 
 
   &:hover,
