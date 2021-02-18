@@ -1,7 +1,7 @@
 create extension if not exists "uuid-ossp";  --superuser required
 
 CREATE TABLE users(
-  id uuid NOT NULL UNIQUE,
+  id uuid,
   name VARCHAR(255) NOT NULL,
   role VARCHAR(255) NOT NULL,
   PRIMARY KEY(id)
