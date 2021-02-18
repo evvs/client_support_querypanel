@@ -4,7 +4,6 @@ import auth from '../../middlewares/auth.middleware';
 
 const router = express.Router();
 
-// auth/login
 router.post('/register', register);
 router.post('/login', login);
 router.get('/validatetoken', auth, checkToken);
