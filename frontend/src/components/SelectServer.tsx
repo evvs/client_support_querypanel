@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Select, { OptionTypeBase } from 'react-select';
 
 const options = [
