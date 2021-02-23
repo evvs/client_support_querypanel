@@ -1,0 +1,14 @@
+@import "../../global_styles/mixins.scss";
+
+.container {
+  min-height: 100vh;
+  display: flex;
+
+ @include media(mobile, tablet) {
+   flex-direction: column-reverse;
+ }
+
+ .main_container {
+   flex-grow: 1;
+ }
+}

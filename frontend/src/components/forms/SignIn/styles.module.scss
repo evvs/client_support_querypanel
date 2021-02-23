@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  & > input {
+    margin-top: 20px;
+  }
+  .submit_error_wrapper {
+    margin-top: 20px;
+
+    .error {
+      color: red;
+      font-size: 0.7rem;
+      margin-left: 1rem;
+    }
+  }
+}

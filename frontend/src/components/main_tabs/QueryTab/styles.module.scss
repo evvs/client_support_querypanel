@@ -1,0 +1,19 @@
+@import "../../../global_styles/default_variables.scss";
+
+.grid_container {
+  display: grid;
+  min-height: 100%;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: 70% 30%;
+
+  .query-editor {
+    background-color: $second-color;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: -1;
+    * {
+      font-family: inherit;
+    }
+  }
+}

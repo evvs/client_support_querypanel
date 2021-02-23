@@ -1,0 +1,17 @@
+$text-color: white;
+$primary-color: #15202b;
+$second-color: #111922;
+
+$primary-fonts: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700
+);
+
+
+$breakpoints: (
+  mobile : 576px, 
+  tablet : 992px, 
+);

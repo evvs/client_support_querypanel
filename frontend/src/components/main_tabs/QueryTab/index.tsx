@@ -1,35 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import AceEditor from 'react-ace';
 import { useDispatch, useSelector } from 'react-redux';
-
+import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-mysql';
 import 'ace-builds/src-noconflict/theme-dracula';
 
-import { updateQuery } from '../redux-slices/querySlice';
-import { RootState } from '..';
-import QueryForm from './QueryForm';
+import s from './styles.module.scss';
+import { updateQuery } from '../../../redux-slices/querySlice';
+import { RootState } from '../../../index';
 
-const GridWrapper = styled.div`
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr;
-`;
-
-const AceEditorStyled = styled(AceEditor)`
-  background-color: #111922;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  grid-column-start: 2;
-  grid-column-end: -1;
-
-  * {
-    font-family: inherit;
-  }
-`;
-
-const QueryEditor: React.FC = () => {
+const QueryTab: React.FC = () => {
   const { queryInput } = useSelector((state: RootState) => state.query);
 
   const dispatch = useDispatch();
@@ -44,9 +23,9 @@ const QueryEditor: React.FC = () => {
   };
 
   return (
-    <GridWrapper>
-      <QueryForm />
-      <AceEditorStyled
+    <div className={s.grid_container}>
+      <AceEditor
+        className={s['query-editor']}
         mode="mysql"
         theme="dracula"
         name="UNIQUE_ID_OF_DIV"
@@ -63,8 +42,8 @@ const QueryEditor: React.FC = () => {
         value={queryValue}
         onBlur={onBlurHandler}
       />
-    </GridWrapper>
+    </div>
   );
 };
 
-export default QueryEditor;
+export default QueryTab;

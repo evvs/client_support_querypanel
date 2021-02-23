@@ -1,0 +1,63 @@
+@import '../../global_styles/default_variables.scss';
+@import '../../global_styles/mixins.scss';
+
+.navbar {
+  background-color: $second-color;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+
+  @include media(mobile, tablet) {
+    padding: 0;
+    flex-direction: row;
+    font-size: 0.8rem;
+  }
+
+  .links-container {
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+    @include media(mobile, tablet) {
+      flex-direction: row;
+    }
+
+    .link {
+      padding: 1rem;
+      &:hover,
+      :focus {
+        @include hover_focus;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .sign_out_btn {
+    padding: 1rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    margin-top: auto;
+
+    @include media(mobile, tablet) {
+      margin-top: 0;
+      margin-left: auto;
+      font-size: 0.8rem;
+    }
+
+    &:hover,
+    :focus {
+      @include hover_focus;
+    }
+  }
+
+  .selected_tab {
+    text-decoration: underline;
+    background-color: $primary-color;
+  }
+}

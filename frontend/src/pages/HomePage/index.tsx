@@ -1,14 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Navigation from '../components/Navigation';
-import Query from '../components/QueryEditor';
-
-const HomeWrapper = styled.div`
-  display: flex;
-  min-height: 100vh;
-`;
+import Navbar from '../../components/Navbar';
+import QueryTab from '../../components/main_tabs/QueryTab';
+import s from './styles.module.scss';
 
 const routes = [
   {
@@ -18,7 +13,7 @@ const routes = [
   },
   {
     path: '/query',
-    main: () => <Query />,
+    main: () => <QueryTab />,
   },
   {
     path: '/logs',
@@ -35,9 +30,9 @@ const routes = [
 ];
 
 const HomePage: React.FC = () => (
-  <HomeWrapper>
-    <Navigation />
-    <main style={{ flexGrow: 1 }}>
+  <div className={s.container}>
+    <Navbar />
+    <main className={s.main_container}>
       <Switch>
         {routes.map((route) => (
           <Route key={route.path} path={route.path} exact={route.exact}>
@@ -46,7 +41,7 @@ const HomePage: React.FC = () => (
         ))}
       </Switch>
     </main>
-  </HomeWrapper>
+  </div>
 );
 
 export default HomePage;

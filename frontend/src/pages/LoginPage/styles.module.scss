@@ -1,0 +1,48 @@
+@import "../../global_styles/mixins.scss";
+@import "../../global_styles/default_variables.scss";
+
+.container {
+  width: 30vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+  }
+
+  .header_container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .tab {
+    &:nth-child(odd) {
+      border-right: 1px solid rgba(21, 161, 242, 0.1);
+    }
+    flex-grow: 1;
+    padding-bottom: 2px;
+    text-align: center;
+    font-size: 2rem;
+
+    &:hover,
+    :focus {
+      outline: none;
+      background-color: rgba(21, 161, 242, 0.1);
+      cursor: pointer;
+    }
+  }
+
+  .current_tab {
+    text-decoration: underline;
+    background-color: $second-color;
+  }
+
+  @include media(mobile, tablet) {
+    width: 80vw;
+  }
+}

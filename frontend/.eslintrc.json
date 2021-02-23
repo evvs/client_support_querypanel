@@ -45,7 +45,11 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {},
+      "alias": {
+        "map": [["~", "./src/"]],
+        "extensions": [".ts", ".js", ".tsx"]
+      }
     }
   }
 }

@@ -1,0 +1,22 @@
+@import "default_variables.scss";
+@import "functions.scss";
+@import "buttons.scss";
+@import "inputs.scss";
+
+body {
+  color: $text-color;
+  font-weight: weight(medium);
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+color: $text-color;
+font-family: $primary-fonts;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}

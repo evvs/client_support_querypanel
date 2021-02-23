@@ -1,18 +1,16 @@
-import styled from 'styled-components';
+@import './default_variables.scss';
 
-export default styled.input`
+.input-main {
   border: none;
-  background: #111922;
+  background: $second-color;
   padding: 10px;
   width: 100%;
   outline: none;
-
   &:focus::placeholder {
     color: transparent;
   }
-
   &::placeholder{
     color: #aaa;
     transition: color 0.3s ease;
   }
-`;
+}

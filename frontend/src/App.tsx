@@ -1,12 +1,11 @@
 import React from 'react';
 import Router from './routers/Router';
-import GlobalStyles from './GlobalStyles';
+import './global_styles/styles.scss';
 
 const App: React.FC = () => {
   return (
     <>
       <Router />
-      <GlobalStyles />
     </>
   );
 };

@@ -1,0 +1,50 @@
+@import "functions.scss";
+@import "mixins.scss";
+
+$bright-blue: #1da1f2;
+$btn-sizes: (
+  "s": 0.5rem 2rem,
+  "m": 0.7rem 4rem,
+  "l": 1rem 6rem,
+);
+
+.btn {
+  cursor: pointer;
+  border-radius: 2rem;
+  font-weight: weight(bold);
+  border-style: solid;
+  padding: map-get($btn-sizes, m);
+
+  &-outlined {
+    background: transparent;
+    color: $bright-blue;
+    border-color: $bright-blue;
+
+    &:hover,
+    :focus {
+      @include hover_focus;
+    }
+    &:disabled {
+      color: grey;
+      border-color: grey;
+    }
+    &:disabled:hover {
+      background-color: transparent;
+      box-shadow: none;
+      cursor: default;
+    }
+  }
+}
+
+
+.small {
+  padding: map-get($btn-sizes, s);
+}
+
+.medium {
+  padding: map-get($btn-sizes, m);
+}
+
+.large {
+  padding: map-get($btn-sizes, l);
+}

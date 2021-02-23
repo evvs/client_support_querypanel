@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
-import NoMatchPage from '../pages/NoMatchPage';
 
 const Router: React.FC = () => {
   return (
@@ -15,9 +14,6 @@ const Router: React.FC = () => {
       <PrivateRoute path="/">
         <HomePage />
       </PrivateRoute>
-      <Route>
-        <NoMatchPage />
-      </Route>
     </Switch>
   );
 };

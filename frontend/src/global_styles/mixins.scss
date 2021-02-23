@@ -1,0 +1,15 @@
+@import 'default_variables.scss';
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @media (max-width: map-get($breakpoints, $key)) {
+      @content;
+    }
+  }
+}
+
+@mixin hover_focus {
+  outline: none;
+  background-color: rgba(21, 161, 242, 0.1);
+  box-shadow: rgb(142, 208, 249) 0px 0px 0px 2px;
+}
