@@ -20,21 +20,28 @@ const LoginPage: React.FC = () => {
     return <Redirect to="/query" />;
   }
 
-  const signInClasses = cn(s.tab, {
-    [s.current_tab]: currentTab === 'signin',
-  });
-  const signUpClasses = cn(s.tab, {
-    [s.current_tab]: currentTab === 'signup',
-  });
+  const headerTabClasses = (tabname: string): string => {
+    return cn(s.tab, {
+      [s.current_tab]: currentTab === tabname,
+    });
+  };
 
   return (
     <main className={s.container}>
       <div className={s.wrapper}>
         <header className={s.header_container}>
-          <h2 className={signInClasses} onClick={() => setCurrentTab('signin')} tabIndex={0}>
+          <h2
+            className={headerTabClasses('signin')}
+            onClick={() => setCurrentTab('signin')}
+            tabIndex={0}
+          >
             Sign In
           </h2>
-          <h2 className={signUpClasses} onClick={() => setCurrentTab('signup')} tabIndex={0}>
+          <h2
+            className={headerTabClasses('signup')}
+            onClick={() => setCurrentTab('signup')}
+            tabIndex={0}
+          >
             Sign Up
           </h2>
         </header>
