@@ -34,6 +34,25 @@ $btn-sizes: (
       cursor: default;
     }
   }
+  &-contained {
+    background: $bright-blue;
+    color: white;
+    border-color: $second-color;
+    &:hover,
+    :focus {
+      @include hover_focus;
+      background: lighten($bright-blue, 10%);
+    }
+    &:disabled {
+      color: grey;
+      border-color: grey;
+    }
+    &:disabled:hover {
+      background-color: transparent;
+      box-shadow: none;
+      cursor: default;
+    }
+  }
 }
 
 
