@@ -1,3 +1,5 @@
+@import "default_variables.scss";
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
@@ -10,8 +12,8 @@
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border: 6px solid $bright-blue;
+    border-color: $bright-blue transparent $bright-blue transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
 
