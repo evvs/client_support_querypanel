@@ -1,0 +1,33 @@
+@import "../../../global_styles/functions.scss";
+
+.container {
+  font-weight: weight(regular);
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding: 10%;
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    .add_server_inputs {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      .port {
+        width: 30%;
+      }
+      .host{
+        width: 50%;
+      }
+    }
+    .add_server-btn {
+      margin: 1rem 0;
+      align-self: center;
+    }
+    .execute-btn {
+      align-self: center;
+    }
+  }
+}
