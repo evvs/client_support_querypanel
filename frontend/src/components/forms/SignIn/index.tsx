@@ -22,7 +22,9 @@ const SigInForm: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
-  const signInHandler = async (data: Record<string, unknown>): Promise<void> => {
+  const signInHandler = async (
+    data: Record<string, unknown>,
+  ): Promise<void> => {
     clearErrors();
     const res = (await request('/auth/login', 'post', data)) as responseType;
     localStorage.setItem('token', res.data.token);
@@ -43,6 +45,7 @@ const SigInForm: React.FC = () => {
           inputRef.current = ref;
           register(ref);
         }}
+        data-testid="signin-login-field"
       />
       <input
         type="password"
@@ -50,9 +53,15 @@ const SigInForm: React.FC = () => {
         placeholder="Password"
         name="password"
         ref={register}
+        data-testid="signin-password-field"
       />
       <div className={s.submit_error_wrapper}>
-        <button type="submit" className="btn btn-outlined" disabled={loading}>
+        <button
+          type="submit"
+          className="btn btn-outlined"
+          disabled={loading}
+          data-testid="signin-submit-btn"
+        >
           Submit
         </button>
         <span className={s.error}>{errors}</span>

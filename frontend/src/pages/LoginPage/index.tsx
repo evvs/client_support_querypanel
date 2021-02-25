@@ -45,7 +45,7 @@ const LoginPage: React.FC = () => {
             Sign Up
           </h2>
         </header>
-        {currentTab === 'signin' ? <SignInForm /> : <SignUpForm />}
+        {currentTab === 'signin' ? <SignInForm data-testid="signin-tab" /> : <SignUpForm data-testid="signup-tab" />}
       </div>
     </main>
   );
