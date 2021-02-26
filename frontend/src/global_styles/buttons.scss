@@ -44,11 +44,12 @@ $btn-sizes: (
       background: lighten($bright-blue, 10%);
     }
     &:disabled {
-      color: grey;
-      border-color: grey;
+      color: darken(white, 30%);
+      background: darken($bright-blue, 30%);
     }
     &:disabled:hover {
-      background-color: transparent;
+      color: darken(white, 30%);
+      background: darken($bright-blue, 30%);
       box-shadow: none;
       cursor: default;
     }

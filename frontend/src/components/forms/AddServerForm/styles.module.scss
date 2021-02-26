@@ -1,0 +1,23 @@
+@import "../../../global_styles/functions.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  font-weight: weight(regular);
+
+  .host_port_inputs{
+    margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      .port {
+        width: 30%;
+      }
+      .host{
+        width: 50%;
+      }
+  }
+  .add_server-btn {
+    margin: 1rem 0;
+    align-self: center;
+  }
+}

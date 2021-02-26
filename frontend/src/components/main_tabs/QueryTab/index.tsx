@@ -7,7 +7,9 @@ import 'ace-builds/src-noconflict/theme-dracula';
 import s from './styles.module.scss';
 import { updateQuery } from '../../../redux-slices/querySlice';
 import { RootState } from '../../../index';
-import QueryForm from '../../forms/QueryForm';
+import QueryOutput from '../../QueryOutput';
+import AddServerForm from '../../forms/AddServerForm';
+import ExecuteQueryForm from '../../forms/ExecuteQueryForm';
 
 const QueryTab: React.FC = () => {
   const { queryInput } = useSelector((state: RootState) => state.query);
@@ -25,7 +27,10 @@ const QueryTab: React.FC = () => {
 
   return (
     <div className={s.grid_container}>
-      <QueryForm />
+      <div className={s.forms_container}>
+        <AddServerForm />
+        <ExecuteQueryForm />
+      </div>
       <AceEditor
         className={s['query-editor']}
         mode="mysql"
@@ -44,6 +49,7 @@ const QueryTab: React.FC = () => {
         value={queryValue}
         onBlur={onBlurHandler}
       />
+      <QueryOutput />
     </div>
   );
 };

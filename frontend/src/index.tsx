@@ -8,10 +8,12 @@ import App from './App';
 import AuthProvider from './context/authContext';
 import usersReducer from './redux-slices/usersSlice';
 import queryReducer from './redux-slices/querySlice';
+import serversReducer from './redux-slices/serversSlice';
 
 const rootReducer = {
   users: usersReducer,
   query: queryReducer,
+  servers: serversReducer,
 };
 
 const store = configureStore({ reducer: rootReducer });

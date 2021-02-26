@@ -16,4 +16,12 @@
       font-family: inherit;
     }
   }
+  .forms_container{
+    font-weight: weight(regular);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding: 10%;
+  }
 }

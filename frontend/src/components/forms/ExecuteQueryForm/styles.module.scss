@@ -1,0 +1,10 @@
+@import "../../../global_styles/functions.scss";
+
+.form {
+  font-weight: weight(regular);
+  display: flex;
+  flex-direction: column;
+  .execute-btn {
+    align-self: center;
+  }
+}
